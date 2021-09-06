@@ -15,7 +15,7 @@ export function NavLink({ icon, children, ...rest }: NavLinkProps) {
   return (
     <Link display='flex' aling='center' {...rest}>
       <Icon as={icon} fontSize='20' />
-      <Text ml='4' fontWeigth='medium'>{children}</Text>
+      <Text ml='4' fontWeight='medium'>{children}</Text>
     </Link>
   )
 }
