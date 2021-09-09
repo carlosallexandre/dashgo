@@ -39,7 +39,7 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
   }
 }
 
-export async function createUser(user: User) {
+export async function createUser(user: Omit<User, 'id' | 'createdAt'>) {
   const response = await api.post('users', {
     user: {
       ...user,
