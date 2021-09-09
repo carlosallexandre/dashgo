@@ -26,7 +26,7 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
   
   const users = data.users.map(user => ({
     ...user,
-    createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
+    createdAt: new Date(user.created_at).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: 'long',
       year: 'numeric'
@@ -37,4 +37,15 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
     users,
     totalCount
   }
+}
+
+export async function createUser(user: User) {
+  const response = await api.post('users', {
+    user: {
+      ...user,
+      created_at: new Date(),
+    }
+  })
+
+  return response.data.user
 }
